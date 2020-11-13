@@ -1,9 +1,10 @@
 import pygame
 from pygame import mixer
 mixer.init()
+#ahah
 
 pygame.init()
-screen = pygame.display.set_mode((1000, 500))
+screen = pygame.display.set_mode((500, 500))
 done = False
 #song
 pygame.mixer.music.load("IntroSong.mp3")
