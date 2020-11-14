@@ -15,8 +15,12 @@ icon=pygame.image.load("cat-mask.png")
 pygame.display.set_icon(icon)
 
 #wallpaper
-image=pygame.image.load("grass.jpg").convert()
-screen.blit(image, (0, 0))
+#image=pygame.image.load("grass.jpg").convert()
+#screen.blit(image, (0, 0))
+
+player=pygame.image.load("cat.png").convert()
+cat = pygame.transform.scale(player, (100, 100))
+screen.blit(cat, (250, 450))
 
 while not done:
     for event in pygame.event.get():
