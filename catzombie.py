@@ -1,7 +1,7 @@
 import pygame
 from pygame import mixer
 mixer.init()
-
+#THIS IS AFFIQTEST
 pygame.init()
 width, height = 640, 480
 screen = pygame.display.set_mode((width, height))
