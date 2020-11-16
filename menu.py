@@ -69,7 +69,7 @@ class MainMenu(Menu):
             elif self.state == 'Credit':
                 self.game.curr_menu = self.game.credit
             elif self.state == 'Exit':
-                pass
+                self.game.running = False
             self.run_display = False
 
 class CreditsMenu(Menu):
@@ -81,6 +81,7 @@ class CreditsMenu(Menu):
         while self.run_display:
             self.game.check_events()
             if self.game.START_KEY or self.game.BACK_KEY:
+                self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.game.display.fill(self.game.BLACK)
             self.game.draw_text('CREDITS', 20, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2-20)
@@ -88,8 +89,8 @@ class CreditsMenu(Menu):
             self.game.draw_text('Affiq Asyraf 2020461488', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+30)
             self.game.draw_text('Mira 2020******', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+40)
             self.game.draw_text('Fateen Najeebah 2020******', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+50)
-            pygame.display.update()
             self.blit_screen()
+
             
         
 

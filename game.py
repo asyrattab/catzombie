@@ -10,9 +10,9 @@ class Game():
         self.display = pygame.Surface((self.DISPLAY_width, self.DISPLAY_height))
         self.window = pygame.display.set_mode(((self.DISPLAY_width, self.DISPLAY_height)))
         self.font_name = '8-BIT WONDER.TTF'
-        #self.font_name = pygame.font.get_default_font()
         self.BLACK, self.WHITE = (0, 0, 0,), (255, 255, 255)
-        self.curr_menu = MainMenu(self)
+        self.main_menu = MainMenu(self)
+        self.curr_menu = self.main_menu
         self.credit = CreditsMenu(self)
 
     def game_loop(self):
