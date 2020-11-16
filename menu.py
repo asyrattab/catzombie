@@ -93,7 +93,7 @@ class CreditsMenu(Menu):
             self.game.draw_text('Made by', 15, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+10)
             self.game.draw_text('Affiq Asyraf 2020461488', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+30)
             self.game.draw_text('Amira Hasha 2020840206', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+45)
-            self.game.draw_text('Fateen Najeebah 2020840332', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+55)
+            self.game.draw_text('Fateen Najeebah 2020840332', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+60)
             self.blit_screen()
 
             
