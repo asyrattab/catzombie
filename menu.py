@@ -34,8 +34,8 @@ class MainMenu(Menu):
             self.game.display.fill(self.game.BLACK)
             self.game.draw_text('Main Menu', 20, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2-20)
             self.game.draw_text("Start Game", 20, self.startx, self.starty)
-            self.game.draw_text("Options", 20, self.optionx, self.optiony)
-            self.game.draw_text("Credits", 20, self.creditx, self.credity)
+            self.game.draw_text("Credits", 20, self.optionx, self.optiony)
+            self.game.draw_text("Exit", 20, self.creditx, self.credity)
             self.draw_cursor()
             self.blit_screen()
 
@@ -43,31 +43,54 @@ class MainMenu(Menu):
         if self.game.DOWN_KEY:
             if self.state == 'Start':
                 self.cursor_rect.midtop = (self.optionx + self.offset, self.optiony)
-                self.state = 'Options'
-            elif self.state == 'Options':
+                self.state = 'Credit'
+            elif self.state == 'Credit':
                 self.cursor_rect.midtop = (self.creditx + self.offset, self.credity)
-                self.state = 'Credits'
-            elif self.state == 'Credits':
+                self.state = 'Exit'
+            elif self.state == 'Exit':
                 self.cursor_rect.midtop = (self.startx + self.offset, self.starty)
                 self.state = 'Start'
         elif self.game.UP_KEY:
             if self.state == 'Start':
                 self.cursor_rect.midtop = (self.creditx + self.offset, self.credity)
-                self.state = 'Credit'
-            elif self.state == 'Option':
+                self.state = 'Exit'
+            elif self.state == 'Credit':
                 self.cursor_rect.midtop = (self.startx + self.offset, self.starty)
                 self.state = 'Start'
-            elif self.state == 'Credits':
+            elif self.state == 'Exit':
                 self.cursor_rect.midtop = (self.optionx + self.offset, self.optiony)
-                self.state = 'Option'
+                self.state = 'Credit'
 
     def check_input(self):
         self.move_cursor()
         if self.game.START_KEY:
             if self.state == 'Start':
                 self.game.playing = True
-            elif self.state == 'Option':
-                pass
             elif self.state == 'Credit':
+                self.game.curr_menu = self.game.credit
+            elif self.state == 'Exit':
                 pass
             self.run_display = False
+
+class CreditsMenu(Menu):
+    def __init__(self, game):
+        Menu.__init__(self, game)
+
+    def display_menu(self):
+        self.run_display = True
+        while self.run_display:
+            self.game.check_events()
+            if self.game.START_KEY or self.game.BACK_KEY:
+                self.run_display = False
+            self.game.display.fill(self.game.BLACK)
+            self.game.draw_text('CREDITS', 20, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2-20)
+            self.game.draw_text('Made by', 15, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+10)
+            self.game.draw_text('Affiq Asyraf 2020461488', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+30)
+            self.game.draw_text('Mira 2020******', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+40)
+            self.game.draw_text('Fateen Najeebah 2020******', 10, self.game.DISPLAY_width/2, self.game.DISPLAY_height/2+50)
+            pygame.display.update()
+            self.blit_screen()
+            
+        
+
+        

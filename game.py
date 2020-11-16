@@ -1,5 +1,5 @@
 import pygame
-from menu import MainMenu
+from menu import *
 
 class Game():
     def __init__(self):
@@ -13,6 +13,7 @@ class Game():
         #self.font_name = pygame.font.get_default_font()
         self.BLACK, self.WHITE = (0, 0, 0,), (255, 255, 255)
         self.curr_menu = MainMenu(self)
+        self.credit = CreditsMenu(self)
 
     def game_loop(self):
         while self.playing:
