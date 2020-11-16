@@ -1,4 +1,6 @@
 import pygame
+from pygame import mixer
+mixer.init()
 
 class Menu():
     def __init__(self, game):
@@ -77,10 +79,13 @@ class CreditsMenu(Menu):
         Menu.__init__(self, game)
 
     def display_menu(self):
+        pygame.mixer.music.load("creditsong.mp3")
+        pygame.mixer.music.play(-1)
         self.run_display = True
         while self.run_display:
             self.game.check_events()
             if self.game.START_KEY or self.game.BACK_KEY:
+                pygame.mixer.music.stop()
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.game.display.fill(self.game.BLACK)

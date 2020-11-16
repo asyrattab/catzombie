@@ -1,5 +1,7 @@
 import pygame
 from menu import *
+from pygame import mixer
+mixer.init()
 
 class Game():
     def __init__(self):
@@ -19,12 +21,13 @@ class Game():
         while self.playing:
             self.check_events()
             if self.START_KEY:
-                self.playing = False
+                self.playing = False    
             self.display.fill(self.BLACK)
             self.draw_text('Thanks for Playing', 20, self.DISPLAY_width/2, self.DISPLAY_height/2)
             self.window.blit(self.display, (0,0))
             pygame.display.update()
             self.reset_keys()
+            pygame.mixer.music.stop()
 
     def check_events(self):
         for event in pygame.event.get():
